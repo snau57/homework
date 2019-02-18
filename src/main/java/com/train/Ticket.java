@@ -9,6 +9,7 @@ public class Ticket {
         this.roundTrip = roundTrip;
     }
 
+
     public void price() {
         int total = (numTickets - roundTrip) * 1000 + (int) (roundTrip * 2000 * 0.9);
         System.out.println("Total tickets: " + numTickets);

@@ -4,12 +4,32 @@ import java.util.*
 
 fun main(args: Array<String>) {
     val scanner = Scanner(System.`in`)
-    print("Please enter number of tickets: ")
-    var numTickets = scanner.nextInt()
-    print("How many round-trip tickets: ")
-    var roundTrip = scanner.nextInt();
-    val t = TicketKt(numTickets, roundTrip)
-    t.price();
+    var numTickets = 0
+    while (numTickets != -1) {
+        print("Please enter number of tickets: ")
+        numTickets = scanner.nextInt()
+        if (numTickets != -1) {
+            if (numTickets >= 0) {
+                print("How many round-trip tickets: ")
+                var roundTrip = scanner.nextInt()
+                if (roundTrip >= 0) {
+                    if (roundTrip <= numTickets) {
+                        val t = TicketKt(numTickets, roundTrip)
+                        t.price();
+                        println("Continue placing your order or enter -1 to end.");
+                    } else {
+                        println("Input error.  Please check your number of round-trip tickets.")
+                    }
+                } else {
+                    println("Input error.  Please check your number of round-trip tickets.")
+                }
+            } else {
+                println("Input error.  Please check your number of tickets.")
+            }
+        } else {
+            println("Good bye.")
+        }
+    }
 }
 
 class TicketKt(var numTickets : Int, var roundTrip : Int) {
