@@ -1,17 +1,17 @@
 package com.train
 
-import java.util.*
-
 fun main(args: Array<String>) {
-    val scanner = Scanner(System.`in`)
+//    val scanner = Scanner(System.`in`)
     var numTickets = 0
     while (numTickets != -1) {
         print("Please enter number of tickets: ")
-        numTickets = scanner.nextInt()
+        numTickets = readLine()!!.toInt()
+//        numTickets = scanner.nextInt()
         if (numTickets != -1) {
             if (numTickets >= 0) {
                 print("How many round-trip tickets: ")
-                var roundTrip = scanner.nextInt()
+                var roundTrip = readLine()!!.toInt()
+//                var roundTrip = scanner.nextInt()
                 if (roundTrip >= 0) {
                     if (roundTrip <= numTickets) {
                         val t = TicketKt(numTickets, roundTrip)
